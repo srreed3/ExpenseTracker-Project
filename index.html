@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Expense Tracker</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <!-- For Pie Chart -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+</head>
+<body>
+    <header>
+        <h1>Track Everyday Expenses</h1>
+        <p class="saying">Manage your finances with ease</p>
+    </header>
+    <div class="allContainer">
+        <div class="addExpenses">
+            <h2>Add Expenses</h2>
+            <form id="formContainer" class="formContainer">
+                <label for="dateExpense">Date of Expense:</label>
+                <input type="date" id="dateExpense" name="dateExpense" required><br>
+
+                <label for="typeExpense">Type of Expense:</label>
+                <select id="typeExpense" name="typeExpense" size="4" multiple required>
+                    <option value = "Rent">Rent</option>
+                    <option value = "Utilities">Utilities</option>
+                    <option value = "Groceries">Groceries</option>
+                    <option value = "Gas">Gas</option>
+                    <option value = "Phone">Phone</option>                    
+                    <option value = "Loans">Loans</option>
+                    <option value = "Insurance">Insurance</option>
+                    <option value = "Entertainment">Entertainment</option>
+                    <option value = "Other">Other</option>
+                </select><br>
+
+                <label for="numAmount">Amount ($):</label>
+                <input type="number" id="numAmount" name="numAmount" min="0" step="0.01" pattern="/^\d+(\.\d{1,2})?$/" required><br>
+
+                <label>List a Description:</label>
+                <textarea id="description" name="description" placeholder="Write description here (optional)" rows="3" cols="35" maxlength="100"></textarea><br>
+                <div class="subButton">
+                    <button id="submit" type="submit">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="viewExpenses, hidden">
+                <div id="output">         
+                </div>
+        </div>
+    </div>
+
+     <!-- pie chart -->
+     <div class="wrapper">
+        <div class="chartContainer">
+            <div class="expenseTitle">
+                <h2>Expenses</h2>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="myChart"></canvas> 
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src='main.js'></script>
+</body>
+<footer>
+    <p>&copy; 2024 Expense Tracker Systems, Inc.</p>
+</footer>
+</html>
